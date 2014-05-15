@@ -3,8 +3,10 @@
 
 ### Algorithm for sorting binary array
 **Input**: Data array of length n
-**Output**: Sorted array of Data
 
+**Output**: Sorted array of Data
+------
+```
 1. var *lastIndexOf_0* <- n-1 
 2. **loop**: *index* <- n-1 to 0 **do**
 3. 		**if** data[index] = 0 **then**
@@ -28,6 +30,6 @@
 1. **else**
 2. 		**return** sorted data array
 3. **End**
+```
 
-------
 
