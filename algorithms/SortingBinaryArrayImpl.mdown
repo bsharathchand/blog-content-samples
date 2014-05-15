@@ -1,0 +1,89 @@
+# Binary Array Sorting Implementation
+
+The [Algorithm](https://github.com/SharathBhaskara/blog-content-samples/blob/master/algorithms/SortingBinaryArray.mdown) for sorting a binary array was implemented in Java using both Iteration and Recursion strategies is detailed under. The complete
+java implementation can be found in this [repository](https://github.com/SharathBhaskara/blog-content-samples/). 
+> For quick readability some of the initialization code is removed 
+
+Recursion Implementation
+----
+
+```java
+@Test
+	@Ignore
+	public void recursionAlgo() {
+		int[] data = Data;
+		int startPos, endPos, iterationCount;
+		int i = count - 1;
+		iterationCount = 0;
+		while (i > 0) {
+			if (data[i] == 0) {
+				break;
+			}
+			i--;
+			++iterationCount;
+		}
+		startPos = 0;
+		endPos = i;
+		sort(data, startPos, endPos, iterationCount);
+		System.out.println("Sorted: " + Arrays.toString(data));
+	}
+
+	private void sort(int[] data, int startPos, int endPos, int iterationCount) {
+		if (data[startPos] == 0) {
+			startPos++;
+		} else {
+			// Swapping
+			data[startPos] = data[endPos] + data[startPos];
+			data[endPos] = data[startPos] - data[endPos];
+			data[startPos] = data[startPos] - data[endPos];
+			endPos--;
+		}
+		if (startPos >= endPos) {
+			System.out.println("Total Recursion Count: " + iterationCount);
+			return;
+		} else {
+			sort(data, startPos, endPos, ++iterationCount);
+		}
+
+	}
+```
+
+
+Iteration Implementation
+-----
+
+```java
+@Test
+	public void iterationAlgo() {
+		System.out.println("Started:" + System.currentTimeMillis());
+		int[] data = Data;
+		int startPos, endPos, iterationCount;
+		int i = count - 1;
+		iterationCount = 0;
+		while (i > 0) {
+			if (data[i] == 0) {
+				break;
+			}
+			i--;
+			++iterationCount;
+		}
+		startPos = 0;
+		endPos = i;
+		while (startPos < endPos) {
+			if (data[startPos] == 0) {
+				startPos++;
+			} else {
+				data[startPos] = data[endPos] + data[startPos];
+				data[endPos] = data[startPos] - data[endPos];
+				data[startPos] = data[startPos] - data[endPos];
+				endPos--;
+			}
+			++iterationCount;
+
+		}
+		System.out.println("Sorted: " + Arrays.toString(data));
+	}
+```
+
+---
+If you like the content please share your [feedback](www.novicehacks.info) or [contact](www.novicehacks.com) me 
