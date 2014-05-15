@@ -11,22 +11,22 @@
  var lastIndexOf_0 <- n-1 
  loop: index <- n-1 to 0 do
  		if data[index] = 0 then
- 			*lastIndexOf_0* <- *index*
-			*break* Loop
+ 			lastIndexOf_0 <- index
+			break Loop
 		end if
 	end loop	
  
- var *startpos* <- 0
- var *endpos* <- lastIndexOf_0
+ var startpos <- 0
+ var endpos <- lastIndexOf_0
  Label: Sort
  if data[startpos] = 0 then
  		startpos <- startpos + 1
  else
  		swap data[startpos] , data[endpos]
- 		*endpos* <- endpos - 1
+ 		endpos <- endpos - 1
  end if
 
- if *startpos* < *endpos* then
+ if startpos < endpos then
  		goto Sort
  else
  		return sorted data array
