@@ -1,0 +1,33 @@
+# Sorting Binary Array with O(n) complexity
+
+
+### Algorithm for sorting binary array
+**Input**: Data array of length n
+**Output**: Sorted array of Data
+
+1. var *lastIndexOf_0* <- n-1 
+2. **loop**: *index* <- n-1 to 0 **do**
+3. 		**if** data[index] = 0 **then**
+4. 			*lastIndexOf_0* <- *index*
+5.			*break* **Loop**
+6.		**end if**
+7.	**end loop**	
+8. 
+9. var *startpos* <- 0
+0. var *endpos* <- lastIndexOf_0
+1. **Label**: Sort
+2. **if** data[startpos] = 0 **then**
+3. 		startpos <- startpos + 1
+4. **else**
+5. 		**swap** data[startpos] , data[endpos]
+6. 		*endpos* <- endpos - 1
+7. **end if**
+8.
+9. **if** *startpos* < *endpos* **then**
+0. 		**goto** Sort
+1. **else**
+2. 		**return** sorted data array
+3. **End**
+
+------
+
