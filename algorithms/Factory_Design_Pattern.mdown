@@ -1,0 +1,57 @@
+
+# Factory Pattern Implementation in Java
+
+Factory Pattern is a widely used, and wonderful Design Pattern. In simple words, it says to have the object creation handled separately, 
+with the object usage. This kind of loose coupling allows us to define independent systems in multiple tiers. Any alteration in creation 
+of the object will not impact the system that is using these objects. If you are not following what am I talking, dont worry and go ahead
+once if you see the usecase and the code defined below you will be in clear understanding of what I meant. (If not then please excuse me and
+explain me on how can I make this better for others).  
+
+
+For explaining in about the Factory design pattern am considering the below usecase. 
+
+Usecase
+-------
+An enthusiast enterprenuer wanted to sell Apple Cakes and wanted to design a system to take orders from his clients. He shared his library, to 
+his major clients, so that they can automatically order the inventory. The clients build systems based on their needs to interact with this library
+for ordering the Cakes.
+
+A programmer immediately, developed a system with a Concrete Class called AppleCake and Order as defined below
+
+```
+public Class AppleCake{
+
+}
+
+public class Order{
+	int noOfCakes;
+	Order(Count count){
+		noOfCakes = count;
+	}
+	
+	public void placeOrder(){
+		for(int i=0;i<noOfCakes;i++){
+			orderList.add(new AppleCake());
+		}
+	}
+}
+```
+It worked fine, for some days. As the days gone by, the enterprenuer wanted to expand his business, and wanted to add two more flavors of cakes
+
+The smart programmer immediately, created two other classes called CherryCake and NutCake and bundled in to the old library
+
+```
+public class CherryCake{
+
+}
+
+public class NutCake{
+
+}
+````
+And with the introduction of the new cakes the owner decided to let off the AppleCake's he initially started, so he wants to stop the support
+for this..
+
+The programmer did a simple step to delete the class of AppleCake from the library, and boom the clients who were using the old library are having
+random exceptions in their code and started complaining. 
+
